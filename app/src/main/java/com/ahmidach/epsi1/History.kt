@@ -70,11 +70,11 @@ class History : AppCompatActivity() {
                     return@setNavigationItemSelectedListener true
                 }
 
-                R.id.nav_graphicsTracking -> {
+                /*R.id.nav_graphicsTracking -> {
                     val intent = Intent(this, ExpenseTracking::class.java)
                     startActivity(intent)
                     return@setNavigationItemSelectedListener true
-                }
+                }*/
 
                 else -> return@setNavigationItemSelectedListener true
             }

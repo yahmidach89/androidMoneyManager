@@ -69,10 +69,10 @@ class GraphiqueAjout : AppCompatActivity() {
                     startActivity(Intent(this, GraphiqueAjout::class.java))
                     return@setNavigationItemSelectedListener true
                 }
-                R.id.nav_graphicsTracking -> {
+                /*R.id.nav_graphicsTracking -> {
                     startActivity(Intent(this, ExpenseTracking::class.java))
                     return@setNavigationItemSelectedListener true
-                }
+                }*/
                 else -> return@setNavigationItemSelectedListener true
             }
         }
