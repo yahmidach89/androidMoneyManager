@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText"
+    android:visibility="invisible">
+
+    <!-- Item du menu pour l'écran d'accueil -->
+    <item
+        android:id="@+id/nav_home"
+        android:title="@string/nav_accueil" />
+
+    <!-- Item du menu pour l'historique des transactions -->
+    <item
+        android:id="@+id/nav_history"
+        android:title="@string/nav_historique" />
+
+    <!-- Item du menu pour afficher les graphiques des dépenses -->
+    <item
+        android:id="@+id/nav_graphics"
+        android:title="@string/nav_graph_depenses" />
+
+    <!-- Item du menu pour afficher les graphiques des gains -->
+    <item
+        android:id="@+id/nav_graphicsAdd"
+        android:title="@string/nav_graph_gains" />
+
+    <!-- Item du menu pour afficher les graphiques des transactions -->
+    <item
+        android:id="@+id/nav_graphicsTracking"
+        android:title="@string/nav_graph_transactions" />
+
+</menu>

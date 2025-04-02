@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Budgeo</string>
+    <string name="nav_open">Ouvrir</string>
+    <string name="nav_close">Fermer</string>
+    <string name="number_title">Valeur</string>
+    <string name="reason_title">Raison</string>
+    <string name="tag_title">Tag</string>
+    <string name="nav_accueil">Accueil</string>
+    <string name="nav_historique">Historique</string>
+    <string name="nav_graph_depenses">Graphique des dépenses</string>
+    <string name="nav_graph_gains">Graphique des gains</string>
+    <string name="nav_graph_transactions">Graphique des transactions</string>
+    <string name="subtitle_dernieres_depenses">Dernières dépenses</string>
+    <string name="title_graphique_depenses">Graphique des dépenses</string>
+    <string name="subtitle_dernier_gains">Derniers gains</string>
+    <string name="title_graphique_gains">Graphique des gains</string>
+    <string name="title_graphique_transaction">Graphique des transactions</string>
+    <string name="subtitle_dernieres_transaction">Dernières transactions</string>
+    <string name="title_historique_transactions">Historique des transactions</string>
+    <string name="placeholder_entrez_tag">Entrez un tag</string>
+    <string name="placeholder_entrez_raison">Entrez une raison</string>
+    <string name="placeholder_entrez_valeur">Entrez une valeur</string>
+    <string name="placeholder_entrez_nombre">Entrez un nombre</string>
+</resources>

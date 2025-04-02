@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Définition du DrawerLayout principal qui permet de gérer un menu latéral -->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#168BC34A"
+    tools:context=".MainActivity"
+    tools:openDrawer="start"
+    tools:ignore="ContentDescription" >
+
+    <!-- Conteneur principal pour afficher les fragments (espace principal de l'écran) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical">
+
+        <!-- FrameLayout pour afficher le fragment dynamique -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <!-- RelativeLayout contenant les éléments principaux de l'écran, comme les TextView et le graphique -->
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".Graphique"
+        tools:ignore="HardcodedText" >
+
+        <!-- TextView pour afficher un titre (par exemple, "Graphique des transactions") -->
+        <TextView
+            android:id="@+id/tv_graphMoney"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="115dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/title_graphique_transaction" />
+
+        <!-- Conteneur pour le graphique (LineChart) -->
+        <LinearLayout
+            android:id="@+id/graphCircle"
+            android:layout_below="@id/tv_graphMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true">
+
+            <!-- Composant graphique de type LineChart -->
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"/>
+
+        </LinearLayout>
+
+        <!-- Conteneur pour afficher une liste des dernières transactions -->
+        <LinearLayout
+            android:layout_below="@id/graphCircle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- TextView pour le titre de la section des dernières transactions -->
+            <TextView
+                android:id="@+id/tv_textDepenses"
+                android:layout_marginBottom="5dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/subtitle_dernieres_transaction" />
+
+            <!-- RecyclerView pour afficher une liste des transactions -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                tools:listitem="@layout/item_transaction"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </RelativeLayout >
+
+    <!-- NavigationView pour afficher le menu latéral (Drawer) avec un menu personnalisé -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginTop="100dp"
+        app:menu="@menu/navigation_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

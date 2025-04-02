@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1009415421177",
+    "project_id": "money-manager-9cdc2",
+    "storage_bucket": "money-manager-9cdc2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009415421177:android:e001e7acbf3b8183887628",
+        "android_client_info": {
+          "package_name": "com.ahmidach.epsi1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAW_iXg4tGIOdr6q_kdateI6E-GLNOFaAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

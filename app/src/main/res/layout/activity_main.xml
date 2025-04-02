@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DrawerLayout pour gérer le menu latéral et le contenu principal de l'application -->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#168BC34A"
+    tools:context=".MainActivity"
+    tools:openDrawer="start"
+    tools:ignore="ContentDescription">
+
+    <!-- Conteneur principal pour les fragments dynamiques -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40sp"
+        android:orientation="vertical">
+
+        <!-- FrameLayout pour l'affichage des fragments -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!-- Contenu principal de l'écran -->
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MainActivity"
+        tools:ignore="HardcodedText" >
+
+        <!-- Titre principal de la page -->
+        <TextView
+            android:id="@+id/tv_currentMoney"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="115dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/nav_accueil" />
+
+        <!-- Affichage du compteur d'argent sous forme de cercle -->
+        <TextView
+            android:id="@+id/tv_counterMoney"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:layout_height="180dp"
+            android:layout_width="180dp"
+            android:text=""
+            android:layout_below="@id/tv_currentMoney"
+            android:textSize="40sp"
+            android:background="@drawable/circle_background_grey"
+            android:gravity="center"
+            android:padding="20dp"/>
+
+        <!-- Titre pour le champ de saisie du nombre -->
+        <TextView
+            android:id="@+id/tv_numberTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/number_title"
+            android:layout_below="@id/tv_counterMoney" />
+
+        <!-- Champ de saisie pour un nombre -->
+        <EditText
+            android:id="@+id/et_numberEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="@string/placeholder_entrez_nombre"
+            android:importantForAccessibility="yes"
+            android:layout_below="@id/tv_numberTitle"
+            android:contentDescription="@string/placeholder_entrez_valeur" />
+
+        <!-- Titre pour la raison de la transaction -->
+        <TextView
+            android:id="@+id/tv_reasonTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/reason_title"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/et_numberEdit" />
+
+        <!-- Champ de saisie pour la raison de la transaction -->
+        <EditText
+            android:id="@+id/et_reasonEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="@string/placeholder_entrez_raison"
+            android:importantForAccessibility="yes"
+            android:layout_below="@id/tv_reasonTitle"
+            android:contentDescription="@string/placeholder_entrez_raison" />
+
+        <!-- Titre pour le tag -->
+        <TextView
+            android:id="@+id/tv_tagTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/tag_title"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/et_reasonEdit" />
+
+        <!-- Champ de saisie pour le tag -->
+        <EditText
+            android:id="@+id/et_tagEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:hint="Entrez un tag"
+            android:importantForAccessibility="yes"
+            android:layout_below="@id/tv_tagTitle"
+            android:contentDescription="@string/placeholder_entrez_tag" />
+
+        <!-- Groupe de Chips pour ajouter ou retirer une transaction -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_tagEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!-- Chip pour ajouter une transaction -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_submitAdd"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Ajouter"
+                android:textSize="16sp"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                app:chipCornerRadius="25dp"
+                app:chipBackgroundColor="@color/light_green"
+                android:textAlignment="center"/>
+
+            <!-- Chip pour retirer une transaction -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btn_submitSub"
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Retirer"
+                android:textSize="16sp"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="10dp"
+                app:chipCornerRadius="25dp"
+                app:chipBackgroundColor="@color/red"
+                android:textAlignment="center"/>
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Section pour afficher les dernières transactions -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_below="@id/chip_group">
+
+            <!-- Titre des dernières transactions -->
+            <TextView
+                android:id="@+id/tv_textDepenses"
+                android:layout_marginBottom="5dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/subtitle_dernieres_transaction" />
+
+            <!-- RecyclerView pour afficher la liste des transactions récentes -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Menu latéral pour la navigation -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginTop="100dp"
+        app:menu="@menu/navigation_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

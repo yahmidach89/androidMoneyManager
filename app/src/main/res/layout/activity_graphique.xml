@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Le DrawerLayout principal qui contient un menu latéral et une vue de contenu principal -->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#168BC34A"
+    tools:context=".MainActivity"
+    tools:openDrawer="start"
+    tools:ignore="ContentDescription" >
+
+    <!-- Conteneur principal qui permet d'afficher les fragments -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical">
+
+        <!-- Conteneur pour le fragment dynamique -->
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <!-- Layout contenant le contenu principal de l'application avec un graphique et une liste -->
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".Graphique"
+        tools:ignore="HardcodedText" >
+
+        <!-- Titre pour la section graphique des dépenses -->
+        <TextView
+            android:id="@+id/tv_graphMoney"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="115dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/title_graphique_depenses" />
+
+        <!-- Conteneur pour le graphique en camembert (PieChart) -->
+        <LinearLayout
+            android:id="@+id/graphCircle"
+            android:layout_below="@id/tv_graphMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true">
+
+            <!-- Composant graphique PieChart pour afficher les données en diagramme circulaire -->
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"/>
+        </LinearLayout>
+
+        <!-- Section pour afficher une liste des dernières dépenses -->
+        <LinearLayout
+            android:layout_below="@id/graphCircle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Titre de la section des dernières dépenses -->
+            <TextView
+                android:id="@+id/tv_textDepenses"
+                android:layout_marginBottom="5dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/subtitle_dernieres_depenses" />
+
+            <!-- RecyclerView pour afficher la liste des dernières dépenses -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                tools:listitem="@layout/item_transaction"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+        </LinearLayout>
+    </RelativeLayout >
+
+    <!-- Menu latéral (NavigationView) qui contient les options de navigation -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:layout_marginTop="100dp"
+        app:menu="@menu/navigation_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>
